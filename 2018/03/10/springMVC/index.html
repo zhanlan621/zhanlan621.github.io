@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="松花酿酒，春水煎茶">
+<meta name="description" content="SpringMVC是什么Spring web MVC属于表现层的框架,它是Spring框架的一部分. SpringMVC框架结构及处理流程 1. 框架结构   2. 处理流程 1、用户发送请求至前端控制器DispatcherServlet2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器">
 <meta name="keywords" content="-springMVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello 独立博客">
+<meta property="og:title" content="初识SpringMVC">
 <meta property="og:url" content="http://yoursite.com/2018/03/10/springMVC/index.html">
 <meta property="og:site_name" content="Azure&#39;s blog">
-<meta property="og:description" content="松花酿酒，春水煎茶">
+<meta property="og:description" content="SpringMVC是什么Spring web MVC属于表现层的框架,它是Spring框架的一部分. SpringMVC框架结构及处理流程 1. 框架结构   2. 处理流程 1、用户发送请求至前端控制器DispatcherServlet2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-12T05:40:47.011Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/SpringMVC%E7%BA%A6%E6%9D%9F.png">
+<meta property="og:updated_time" content="2018-03-12T06:54:14.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello 独立博客">
-<meta name="twitter:description" content="松花酿酒，春水煎茶">
+<meta name="twitter:title" content="初识SpringMVC">
+<meta name="twitter:description" content="SpringMVC是什么Spring web MVC属于表现层的框架,它是Spring框架的一部分. SpringMVC框架结构及处理流程 1. 框架结构   2. 处理流程 1、用户发送请求至前端控制器DispatcherServlet2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png">
 
 
 
@@ -126,7 +129,7 @@
 
 
 
-  <title>Hello 独立博客 | Azure's blog</title>
+  <title>初识SpringMVC | Azure's blog</title>
   
 
 
@@ -280,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello 独立博客</h1>
+          <h1 class="post-title" itemprop="name headline">初识SpringMVC</h1>
         
 
         <div class="post-meta">
@@ -352,7 +355,89 @@
       
 
       
-        
+        <h2 id="SpringMVC是什么"><a href="#SpringMVC是什么" class="headerlink" title="SpringMVC是什么"></a>SpringMVC是什么</h2><p>Spring web MVC属于表现层的框架,它是Spring框架的一部分.</p>
+<h2 id="SpringMVC框架结构及处理流程"><a href="#SpringMVC框架结构及处理流程" class="headerlink" title="SpringMVC框架结构及处理流程"></a>SpringMVC框架结构及处理流程</h2><p> <strong>1. 框架结构</strong></p>
+<p><img src="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png" alt=""></p>
+<p> <strong>2. 处理流程</strong></p>
+<p>1、用户发送请求至前端控制器DispatcherServlet<br>2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。<br>3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。<br>4、DispatcherServlet通过HandlerAdapter处理器适配器调用处理器<br>5、执行处理器(Controller，也叫后端控制器)。<br>6、Controller执行完成返回ModelAndView<br>7、HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet<br>8、DispatcherServlet将ModelAndView传给ViewReslover视图解析器<br>9、ViewReslover解析后返回具体View<br>10、DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。<br>11、DispatcherServlet响应用户</p>
+<p> <strong>3. 组件说明</strong></p>
+<p> 以下组件通常使用框架提供实现：</p>
+<ul>
+<li>DispatcherServlet：前端控制器<br>用户请求到达前端控制器，它就相当于mvc模式中的c，dispatcherServlet是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet的存在降低了组件之间的耦合性。</li>
+<li>HandlerMapping：处理器映射器<br>HandlerMapping负责根据用户请求url找到Handler即处理器，springmvc提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。</li>
+<li>Handler：处理器<br>Handler 是继DispatcherServlet前端控制器的后端控制器，在DispatcherServlet的控制下Handler对具体的用户请求进行处理。<br>由于Handler涉及到具体的用户业务请求，所以一般情况需要程序员根据业务需求开发Handler。</li>
+<li>HandlAdapter：处理器适配器<br>通过HandlerAdapter对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。<br>下图是许多不同的适配器，最终都可以使用usb接口连接</li>
+<li>ViewResolver：视图解析器<br>View Resolver负责将处理结果生成View视图，View Resolver首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成View视图对象，最后对View进行渲染将处理结果通过页面展示给用户。 </li>
+<li>View：视图<br>springmvc框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。</li>
+</ul>
+<h2 id="SpringMVC的配置"><a href="#SpringMVC的配置" class="headerlink" title="SpringMVC的配置"></a>SpringMVC的配置</h2><p> <strong>1. 创建springmvc.xml</strong></p>
+<p>SpringMVC的核心配置文件<br>SpringMVC本身就是Spring的子项目，对Spring兼容性很好，不需要做很多配置。</p>
+<pre><code>  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd&quot;&gt;
+
+    &lt;!-- 配置组件扫描器 --&gt;
+    &lt;context:component-scan base-package=&quot;cn.itcast.springmvc.controller&quot; /&gt;
+    &lt;!-- 配置注解驱动 --&gt;
+    &lt;mvc:annotation-driven /&gt;
+    &lt;!-- 配置视图解析器 --&gt;
+    &lt;bean
+        class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;!-- 配置逻辑视图的前缀 --&gt;
+        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+        &lt;!-- 配置逻辑视图的后缀 --&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><p> <strong>- 组件扫描器</strong></p>
+<p>使用组件扫描器省去在spring容器配置每个Controller类的繁琐。<br>使用<code>&lt;context:component-scan&gt;</code>自动扫描标记@Controller的控制器类，</p>
+<p> <strong>- 注解驱动</strong></p>
+<p>注解式处理器映射器，对类中标记了@ResquestMapping的方法进行映射。根据@ResquestMapping定义的url匹配@ResquestMapping标记的方法，匹配成功返回HandlerMethod对象给前端控制器。<br>HandlerMethod对象中封装url对应的方法Method。<br>注解式处理器适配器，对标记@ResquestMapping的方法进行适配。<br>直接配置处理器映射器和处理器适配器比较麻烦，可以使用注解驱动来加载。<br>SpringMVC使用<code>&lt;mvc:annotation-driven&gt;</code>自动加载RequestMappingHandlerMapping和RequestMappingHandlerAdapter<br>可以在springmvc.xml配置文件中使用<code>&lt;mvc:annotation-driven&gt;</code>替代注解处理器和适配器的配置。<br>注解描述：<br>@RequestMapping：定义请求url到处理器功能方法的映射。</p>
+<p> <strong>- 视图解析器</strong><br>视图解析器使用SpringMVC框架默认的InternalResourceViewResolver，这个视图解析器支持JSP视图解析。<br>逻辑视图名需要在controller中返回ModelAndView指定，比如逻辑视图名为ItemList，则最终返回的jsp视图地址:“WEB-INF/jsp/itemList.jsp”</p>
+<p>最终jsp物理地址：前缀+逻辑视图名+后缀</p>
+<p> <strong>2. 约束</strong></p>
+<p>配置文件需要的约束文件，如下图：<br><img src="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/SpringMVC%E7%BA%A6%E6%9D%9F.png" alt=""></p>
+<p> <strong>3. 配置前端控制器</strong></p>
+<p>配置SpringMVC的前端控制器DispatcherServlet<br>在web.xml中</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;
+    id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
+    &lt;display-name&gt;springmvc-first&lt;/display-name&gt;
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+    &lt;/welcome-file-list&gt;
+
+    &lt;!-- 配置SpringMVC前端控制器 --&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;springmvc-first&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;!-- 指定SpringMVC配置文件 --&gt;
+        &lt;!-- SpringMVC的配置文件的默认路径是/WEB-INF/${servlet-name}-servlet.xml --&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;classpath:springmvc.xml&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;springmvc-first&lt;/servlet-name&gt;
+        &lt;!-- 设置所有以action结尾的请求进入SpringMVC --&gt;
+        &lt;url-pattern&gt;*.action&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
       
     </div>
     
@@ -442,8 +527,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,6 +601,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC是什么"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC框架结构及处理流程"><span class="nav-number">2.</span> <span class="nav-text">SpringMVC框架结构及处理流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC的配置"><span class="nav-number">3.</span> <span class="nav-text">SpringMVC的配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
