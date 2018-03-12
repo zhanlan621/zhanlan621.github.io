@@ -86,13 +86,13 @@
 <meta property="og:site_name" content="Azure&#39;s blog">
 <meta property="og:description" content="SpringMVC是什么Spring web MVC属于表现层的框架,它是Spring框架的一部分. SpringMVC框架结构及处理流程 1. 框架结构   2. 处理流程 1、用户发送请求至前端控制器DispatcherServlet2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/SpringMVC%E7%BA%A6%E6%9D%9F.png">
-<meta property="og:updated_time" content="2018-03-12T07:05:35.423Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/12/SpringMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/12/SpringMVC/SpringMVC%E7%BA%A6%E6%9D%9F.png">
+<meta property="og:updated_time" content="2018-03-12T07:08:00.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC">
 <meta name="twitter:description" content="SpringMVC是什么Spring web MVC属于表现层的框架,它是Spring框架的一部分. SpringMVC框架结构及处理流程 1. 框架结构   2. 处理流程 1、用户发送请求至前端控制器DispatcherServlet2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/12/SpringMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png">
 
 
 
@@ -334,7 +334,7 @@
       
         <h2 id="SpringMVC是什么"><a href="#SpringMVC是什么" class="headerlink" title="SpringMVC是什么"></a>SpringMVC是什么</h2><p>Spring web MVC属于表现层的框架,它是Spring框架的一部分.</p>
 <h2 id="SpringMVC框架结构及处理流程"><a href="#SpringMVC框架结构及处理流程" class="headerlink" title="SpringMVC框架结构及处理流程"></a>SpringMVC框架结构及处理流程</h2><p> <strong>1. 框架结构</strong></p>
-<p><img src="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png" alt="此处输入图片的描述"></p>
+<p><img src="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/12/SpringMVC/springmvc%E6%A1%86%E6%9E%B6%E5%8F%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png" alt=""></p>
 <p> <strong>2. 处理流程</strong></p>
 <p>1、用户发送请求至前端控制器DispatcherServlet<br>2、DispatcherServlet收到请求调用HandlerMapping处理器映射器。<br>3、处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。<br>4、DispatcherServlet通过HandlerAdapter处理器适配器调用处理器<br>5、执行处理器(Controller，也叫后端控制器)。<br>6、Controller执行完成返回ModelAndView<br>7、HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet<br>8、DispatcherServlet将ModelAndView传给ViewReslover视图解析器<br>9、ViewReslover解析后返回具体View<br>10、DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。<br>11、DispatcherServlet响应用户</p>
 <p> <strong>3. 组件说明</strong></p>
@@ -378,7 +378,7 @@
 <p> <strong>- 视图解析器</strong><br>视图解析器使用SpringMVC框架默认的InternalResourceViewResolver，这个视图解析器支持JSP视图解析。<br>逻辑视图名需要在controller中返回ModelAndView指定，比如逻辑视图名为ItemList，则最终返回的jsp视图地址:“WEB-INF/jsp/itemList.jsp”</p>
 <p>最终jsp物理地址：前缀+逻辑视图名+后缀</p>
 <p> <strong>2. 约束</strong></p>
-<p>配置文件需要的约束文件，如下图：<br><img src="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/10/springMVC/SpringMVC%E7%BA%A6%E6%9D%9F.png" alt=""></p>
+<p>配置文件需要的约束文件，如下图：<br><img src="https://raw.githubusercontent.com/zhanlan621/zhanlan621.github.io/master/2018/03/12/SpringMVC/SpringMVC%E7%BA%A6%E6%9D%9F.png" alt=""></p>
 <p> <strong>3. 配置前端控制器</strong></p>
 <p>配置SpringMVC的前端控制器DispatcherServlet<br>在web.xml中</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
